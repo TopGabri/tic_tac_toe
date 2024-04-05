@@ -88,3 +88,7 @@
   .game-info {
     margin-left: 20px;
   }
+
+  .highlighted{
+    background-color: yellow;
+  }
