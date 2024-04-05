@@ -34,7 +34,7 @@ function Board({xIsNext, squares, onPlay}) {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
   
-
+  /* Hard-coded squares
   return (
     <>
       <div className="status">{status}</div>
@@ -53,6 +53,27 @@ function Board({xIsNext, squares, onPlay}) {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
+    </>
+  );
+  */
+
+  
+  const dim = 3;
+  const myBoard = [];
+
+  for (let row=0; row < dim; row++){
+    const myRow = [];
+    for (let col=0; col < dim; col++){
+      const square = <Square value={squares[row*dim+col]} onSquareClick={() => handleClick(row*dim+col)} />;
+      myRow.push(square);
+    }
+    myBoard.push(<div className="board-row">{myRow}</div>);
+  };
+
+  return (
+    <>
+      <div className="status">{status}</div>
+      {myBoard}      
     </>
   );
 }
